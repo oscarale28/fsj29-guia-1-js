@@ -11,7 +11,6 @@ export default function render() {
     `;
 
   const ageInput = form.querySelector("#name");
-  console.log(ageInput);
   const resultText = form.querySelector("#result-text");
   ageInput.addEventListener("input", () => {
     resultText.textContent = "";

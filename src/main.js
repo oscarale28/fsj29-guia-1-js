@@ -42,6 +42,12 @@ exercises.forEach((exercise) => {
 
   // Event listener para cargar cada ejercicio
   button.addEventListener("click", async () => {
+    // Mark as active the clicked button
+    document.querySelectorAll("#exercise-list button").forEach((btn) => {
+      btn.classList.remove("active");
+    });
+    button.classList.add("active");
+
     sandbox.innerHTML = "Cargando ejercicio...";
     try {
       // Carga del módulo
