@@ -50,8 +50,6 @@ exercises.forEach((exercise) => {
     } catch (err) {
       console.error("Error al cargar el ejercicio:", err);
       sandbox.innerHTML = "Error al cargar el ejercicio.";
-      sandbox.style.color = "red";
-      sandbox.style.fontWeight = "bold";
     }
   });
   li.appendChild(button);
@@ -73,6 +71,6 @@ function generalRender(exerciseTitle, domElement) {
   if (domElement) {
     sandbox.appendChild(domElement);
   } else {
-    sandbox.innerHTML = "Error al cargar el ejercicio.";
+    sandbox.innerHTML = "No se pudo cargar el ejercicio.";
   }
 }
