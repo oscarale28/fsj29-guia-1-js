@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,60 +19,51 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: start;
   min-width: 320px;
   min-height: 100vh;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2rem;
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
   padding: 2rem;
+  max-width: 1600px;
   text-align: center;
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.title h3 {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: 3em;
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
+
 .logo.vanilla:hover {
   filter: drop-shadow(0 0 2em #f7df1eaa);
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 button {
-  border-radius: 8px;
+  border-radius: 0.5rem;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.5rem 1.5rem;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -74,12 +71,74 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: #f7df1eaa;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+main {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 500px;
+}
+
+/* Exercises list styles */
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 0.5rem;
+  overflow-x: auto;
+  max-width: 100%;
+  scrollbar-width: thin;
+}
+
+ul li {
+  flex: 0 0 auto;
+  /* Evita que los botones se estiren */
+}
+
+ul::-webkit-scrollbar {
+  height: 6px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: rgba(247, 223, 30, 0.2);
+  border-radius: 4px;
+}
+
+#exercise-sandbox {
+  border-radius: 0.5rem;
+  background-color: rgb(26, 26, 26, 0.4);
+  padding: 1rem;
+  flex: 1;
+}
+
+@media (width > 768px) {
+
+  #app {}
+
+  header {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+  }
+
+  main {
+    flex-direction: row;
+  }
+
+  ul {
+    flex-direction: column;
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -87,9 +146,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
