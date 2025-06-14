@@ -24,13 +24,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: start;
-  min-width: 320px;
+  min-width: 20rem;
   min-height: 100vh;
 }
 
 #app {
   padding: 2rem;
-  max-width: 1600px;
+  max-width: 100rem;
   text-align: center;
 }
 
@@ -65,7 +65,8 @@ input:focus-visible {
   outline: none;
 }
 
-input {
+input,
+select {
   border-radius: 0.5rem;
   border: 1px solid transparent;
   padding: 0.5rem 1rem;
@@ -85,6 +86,14 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+input[type="radio"] {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  accent-color: #fee85a;
 }
 
 /* --- HEADER --- */
@@ -116,7 +125,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  min-height: 500px;
+  min-height: 32rem;
 }
 
 /* --- EXERCISES LIST --- */
@@ -169,6 +178,11 @@ ul::-webkit-scrollbar-thumb {
   margin-bottom: 1rem;
 }
 
+#result {
+  text-align: left;
+  display: inline-block;
+}
+
 .input-group {
   display: flex;
   flex-direction: column;
@@ -182,7 +196,11 @@ ul::-webkit-scrollbar-thumb {
   gap: 1rem;
 }
 
-#exercise-2-form {
+#exercise-2-form,
+#exercise-3-form,
+#exercise-4-form,
+#exercise-5-form,
+#exercise-6-form {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
@@ -192,6 +210,17 @@ ul::-webkit-scrollbar-thumb {
   grid-column: 1 / -1;
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#exercise-3-form .categories-container {
+  grid-column: 1 / -1;
+  text-align: left;
+}
+
+#exercise-3-form .categories-container .categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.25rem;
 }
 
 @media (width > 768px) {
@@ -211,7 +240,8 @@ ul::-webkit-scrollbar-thumb {
     flex-direction: column;
   }
 
-  #exercise-2-form {
+  #exercise-2-form,
+  #exercise-3-form {
     grid-template-columns: repeat(2, 1fr);
   }
 

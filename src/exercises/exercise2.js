@@ -38,7 +38,7 @@ export default function exercise2() {
 
   inputs.forEach((input) => {
     input.addEventListener("input", () => {
-      results.innerHTML = ""; // Clear results when inputs change
+      results.innerHTML = "";
     });
   });
 
