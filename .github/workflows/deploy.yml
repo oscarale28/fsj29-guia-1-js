@@ -1,0 +1,46 @@
+name: Deploy
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Set up Node
+        uses: actions/setup-node@v2
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Configure vite
+        run: |
+          echo 'export default {
+            base: "/${{ github.event.repository.name }}/"
+          }' > vite.config.js
+
+      - name: Build project
+        run: pnpm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+      permissions:
+        pages: write
+        id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
