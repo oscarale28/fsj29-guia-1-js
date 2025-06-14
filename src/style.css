@@ -30,6 +30,7 @@ body {
 
 #app {
   padding: 2rem;
+  width: 100%;
   max-width: 100rem;
   text-align: center;
 }
