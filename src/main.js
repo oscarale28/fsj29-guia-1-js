@@ -25,14 +25,21 @@ const sandbox = document.getElementById("exercise-sandbox");
 const modules = import.meta.glob("./exercises/*.js");
 
 // Armado de la lista de ejercicios
-const exercises = Object.keys(modules).map((path, i) => {
-  console.log(`Cargando módulo: ${path}`); // Verifica el nombre del módulo
-  return {
-    id: i + 1,
-    title: `Estructuras de Control - Ejercicio ${i + 1}`,
-    path: modules[path]
-  };
-});
+const exercises = Object.keys(modules)
+  // Ordenamiento correcto de los ejercicios
+  .sort((a, b) => {
+    const regex = /(\d+)/;
+    const aMatch = regex.exec(a);
+    const bMatch = regex.exec(b);
+    return parseInt(aMatch[0]) - parseInt(bMatch[0]);
+  })
+  .map((path, i) => {
+    return {
+      id: i + 1,
+      title: `Estructuras de Control - Ejercicio ${i + 1}`,
+      path: modules[path]
+    };
+  });
 
 exercises.forEach((exercise) => {
   // Creación de items de la lista de ejercicios

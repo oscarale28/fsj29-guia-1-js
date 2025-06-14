@@ -16,7 +16,7 @@ export default function exercise3() {
     </div>
     <div class="input-group">
       <label for="salary">Salario</label>
-      <input type="number" id="salary" name="salary" placeholder="Ingrese su salario ($)" step="0.01" required>
+      <input type="number" id="salary" name="salary" placeholder="Ingrese su salario ($)" min=0 step="0.01" required>
     </div>  
     <div class="categories-container">
       <p>Seleccione una categoría de aumento</p>
