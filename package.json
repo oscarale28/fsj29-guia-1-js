@@ -2,7 +2,7 @@
   "name": "guia-1-js",
   "homepage": "https://oscarale28.github.io/fsj29-guia-1-js/",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
